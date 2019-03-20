@@ -9,7 +9,7 @@ public abstract class LonelyTwitter implements Serializable {
     protected Date tweetDate;
     protected String tweetBody;
 
-    public Date getTweetDate() {
+    public Date getTweetDateForATweet() {
         return tweetDate;
     }
 
@@ -36,7 +36,7 @@ public abstract class LonelyTwitter implements Serializable {
         tweetBody = (String) in.readObject();
     }
 
-    public boolean isValid() {
+    public boolean isValidTweet() {
         if (tweetBody.trim().length() == 0
                 || tweetBody.trim().length() > 10) {
             return false;
@@ -47,6 +47,6 @@ public abstract class LonelyTwitter implements Serializable {
 
     @Override
     public String toString() {
-        return getTweetDate() + " | " + getTweetBody() ;
+        return getTweetDateForATweet() + " | " + getTweetBody() ;
     }
 }
